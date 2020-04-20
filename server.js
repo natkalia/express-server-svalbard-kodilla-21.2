@@ -3,37 +3,40 @@ const path = require('path');
 
 const app = express();
 
+// middleware providing correct paths for all endpoints
+// using method res.show
 app.use((req, res, next) => {
-  res.show = (name) => {
+  res.show = name => {
     res.sendFile(path.join(__dirname + `/views/${name}`));
   };
   next();
 });
 
-app.get('/style.css', (req, res) => {
-  res.sendFile(path.join(__dirname + '/style.css'));
-});
+// middleware express.static for serving external files
+// like style.css, images
+app.use(express.static(path.join(__dirname + '/public')));
 
-app.get('/svalbard.png', (req, res) => {
-  res.sendFile(path.join(__dirname + '/svalbard.png'));
-});
-
+// homepage endpoint
 app.get('/', (req, res) => {
   res.show('index.html');
 });
 
+// about endpoint
 app.get('/about', (req, res) => {
   res.show('about.html');
 });
 
+// contact endpoint
 app.get('/contact', (req, res) => {
   res.show('contact.html');
 });
 
+// info endpoint
 app.get('/info', (req, res) => {
   res.show('info.html');
 });
 
+// history endpoint
 app.get('/history', (req, res) => {
   res.show('history.html');
 });
