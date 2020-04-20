@@ -10,6 +10,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/style.css', (req, res) => {
+  res.sendFile(path.join(__dirname + '/style.css'));
+});
+
+app.get('/svalbard.png', (req, res) => {
+  res.sendFile(path.join(__dirname + '/svalbard.png'));
+});
+
 app.get('/', (req, res) => {
   res.show('index.html');
 });

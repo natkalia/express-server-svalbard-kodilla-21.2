@@ -4,6 +4,9 @@ Simple Express.js server with handlebars views created as exercise for Kodilla w
 
 ## Technologies
 
+* Express.js
+* Handlebars
+
 ## Installation
 
 `yarn add` or `npm install`
