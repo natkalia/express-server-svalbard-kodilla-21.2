@@ -8,42 +8,33 @@ const app = express();
 app.engine('hbs', hbs());
 app.set('view engine', 'hbs');
 
-// middleware providing correct paths for all endpoints
-// using method res.show
-app.use((req, res, next) => {
-  res.show = name => {
-    res.sendFile(path.join(__dirname + `/views/${name}`));
-  };
-  next();
-});
-
 // middleware express.static for serving external files
 // like style.css, images
 app.use(express.static(path.join(__dirname + '/public')));
 
 // homepage endpoint
 app.get('/', (req, res) => {
-  res.show('index.html');
+  res.render('index', { layout: false, name: req.params.name });
 });
 
 // about endpoint
 app.get('/about', (req, res) => {
-  res.show('about.html');
+  res.render('about', { layout: false, name: req.params.name });
 });
 
 // contact endpoint
 app.get('/contact', (req, res) => {
-  res.show('contact.html');
+  res.render('contact', { layout: false, name: req.params.name });
 });
 
 // info endpoint
 app.get('/info', (req, res) => {
-  res.show('info.html');
+  res.render('info', { layout: false, name: req.params.name });
 });
 
 // history endpoint
 app.get('/history', (req, res) => {
-  res.show('history.html');
+  res.render('history', { layout: false, name: req.params.name });
 });
 
 // use name from params to render using hbs
