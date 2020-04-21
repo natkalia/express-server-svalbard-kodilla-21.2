@@ -5,6 +5,8 @@ Simple Express.js server created as exercise for Kodilla webdeveloper bootcamp (
 ## Technologies
 
 * Express.js
+* templating engine: express-handlebars
+* nodemon (I have it installed globally, so it is not reflected in package.json dependencies)
 
 ## Installation
 
@@ -12,5 +14,7 @@ Simple Express.js server created as exercise for Kodilla webdeveloper bootcamp (
 
 ## Running
 
-`node server`
+Download/clone project and run `node server` in your console.
+
+You can also install nodemon npm package and run `nodemon server`. This utility that will monitor for any changes in your source and automatically restart your server. I have it installed globally, so it is not reflected in package.json dependencies.
 
