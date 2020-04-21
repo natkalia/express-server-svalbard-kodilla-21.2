@@ -14,27 +14,27 @@ app.use(express.static(path.join(__dirname + '/public')));
 
 // homepage endpoint
 app.get('/', (req, res) => {
-  res.render('index', { layout: false, name: req.params.name });
+  res.render('index', { layout: false });
 });
 
 // about endpoint
 app.get('/about', (req, res) => {
-  res.render('about', { layout: false, name: req.params.name });
+  res.render('about', { layout: false });
 });
 
 // contact endpoint
 app.get('/contact', (req, res) => {
-  res.render('contact', { layout: false, name: req.params.name });
+  res.render('contact', { layout: false });
 });
 
 // info endpoint
 app.get('/info', (req, res) => {
-  res.render('info', { layout: false, name: req.params.name });
+  res.render('info', { layout: false });
 });
 
 // history endpoint
 app.get('/history', (req, res) => {
-  res.render('history', { layout: false, name: req.params.name });
+  res.render('history', { layout: false });
 });
 
 // use name from params to render using hbs
