@@ -1,7 +1,12 @@
 const express = require('express');
 const path = require('path');
+const hbs = require('express-handlebars');
 
 const app = express();
+
+// setup for handlebars
+app.engine('hbs', hbs());
+app.set('view engine', 'hbs');
 
 // middleware providing correct paths for all endpoints
 // using method res.show
@@ -39,6 +44,11 @@ app.get('/info', (req, res) => {
 // history endpoint
 app.get('/history', (req, res) => {
   res.show('history.html');
+});
+
+// use name from params to render using hbs
+app.get('/hello/:name', (req, res) => {
+  res.render('hello', { layout: false, name: req.params.name });
 });
 
 // catch incorrect requests
