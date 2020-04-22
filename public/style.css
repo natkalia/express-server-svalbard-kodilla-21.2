@@ -2,3 +2,8 @@ h1 {
   font-weight: lighter;
   font-style: italic;
 }
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}

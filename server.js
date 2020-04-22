@@ -29,7 +29,7 @@ app.get('/contact', (req, res) => {
 
 // info endpoint
 app.get('/info', (req, res) => {
-  res.render('info');
+  res.render('info', { layout: 'dark' });
 });
 
 // history endpoint
