@@ -34,8 +34,16 @@ app.get('/contact', (req, res) => {
   res.render('contact');
 });
 
+// contact form with validation checking if fields not empty
 app.post('/contact/send-message', (req, res) => {
-  res.json(req.body);
+  const { author, sender, title, message } = req.body;
+  if(author && sender && title && message) {
+    // res.json(req.body);
+    res.send('The message has been sent!');
+  }
+  else {
+    res.send('You can\'t leave fields empty!')
+  }
 });
 
 // info endpoint
