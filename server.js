@@ -12,6 +12,13 @@ app.set('view engine', 'hbs');
 // like style.css, images
 app.use(express.static(path.join(__dirname + '/public')));
 
+// middleware to be able to use urlencoded form of requests
+// extended for nested data not useful now
+app.use(express.urlencoded({ extended: false }));
+
+// middleware to be able to get json responses (e.g. from form-data)
+// app.use(express.json());
+
 // homepage endpoint
 app.get('/', (req, res) => {
   res.render('index');
@@ -25,6 +32,10 @@ app.get('/about', (req, res) => {
 // contact endpoint
 app.get('/contact', (req, res) => {
   res.render('contact');
+});
+
+app.post('/contact/send-message', (req, res) => {
+  res.json(req.body);
 });
 
 // info endpoint
