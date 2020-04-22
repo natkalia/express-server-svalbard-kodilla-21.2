@@ -18,3 +18,6 @@ Download/clone project and run `node server` in your console.
 
 You can also install nodemon npm package and run `nodemon server`. This utility that will monitor for any changes in your source and automatically restart your server. I have it installed globally, so it is not reflected in package.json dependencies.
 
+## TODO's
+
+- [ ] add new feature: if user load an image in contact form (as project design), as a result of succsess show img itself and not only info about success
