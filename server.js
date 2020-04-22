@@ -4,8 +4,8 @@ const hbs = require('express-handlebars');
 
 const app = express();
 
-// setup for handlebars, define path for layout(s)
-app.engine('hbs', hbs({ extname: 'hbs', layoutsDir: './views', defaultLayout: 'main' }));
+// setup for handlebars, define path for layout(s), set default layout
+app.engine('hbs', hbs({ extname: 'hbs', layoutsDir: './layouts', defaultLayout: 'main' }));
 app.set('view engine', 'hbs');
 
 // middleware express.static for serving external files
