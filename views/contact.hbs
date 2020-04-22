@@ -1,14 +1,15 @@
 <h2>Contact me</h2>
 
 {{#if isSent}}
-  <p class="isSent">The message has been sent</p>
+  <p class="isSent">The message has been sent. File {{ filename }} has been saved</p>
 {{/if}}
 
 {{#if isError}}
   <p class="isError">You can't leave fields empty</p>
 {{/if}}
 
-<form action="/contact/send-message" method="POST">
+{{! default enctype is application/x-www-form-urlencoded, we need to apply form-data because of image --}}
+<form action="/contact/send-message" method="POST" enctype="multipart/form-data">
   <label>
     Your name: <input type="text" name="author">
   </label>
@@ -17,6 +18,9 @@
   </label>
   <label>
     Title: <input type="text" name="title">
+  </label>
+  <label>
+    Project design: <input type="file" name="image" accept=" image/png, image/jpeg, image/jpg, image/gif" required>
   </label>
    <label>
     Message: <textarea name="message"></textarea>

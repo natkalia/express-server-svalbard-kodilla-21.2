@@ -36,9 +36,9 @@ app.get('/contact', (req, res) => {
 
 // contact form with validation checking if fields not empty
 app.post('/contact/send-message', (req, res) => {
-  const { author, sender, title, message } = req.body;
-  if(author && sender && title && message) {
-    res.render('contact', { isSent: true });
+  const { author, sender, title, message, image } = req.body;
+  if(author && sender && title && message && image) {
+    res.render('contact', { isSent: true, filename: req.body.image });
   }
   else {
     res.render('contact', { isError: true });
