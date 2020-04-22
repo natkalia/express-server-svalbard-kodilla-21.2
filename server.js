@@ -4,8 +4,8 @@ const hbs = require('express-handlebars');
 
 const app = express();
 
-// setup for handlebars
-app.engine('hbs', hbs());
+// setup for handlebars, define path for layout(s)
+app.engine('hbs', hbs({ extname: 'hbs', layoutsDir: './views', defaultLayout: 'main' }));
 app.set('view engine', 'hbs');
 
 // middleware express.static for serving external files
@@ -14,32 +14,32 @@ app.use(express.static(path.join(__dirname + '/public')));
 
 // homepage endpoint
 app.get('/', (req, res) => {
-  res.render('index', { layout: false });
+  res.render('index');
 });
 
 // about endpoint
 app.get('/about', (req, res) => {
-  res.render('about', { layout: false });
+  res.render('about');
 });
 
 // contact endpoint
 app.get('/contact', (req, res) => {
-  res.render('contact', { layout: false });
+  res.render('contact');
 });
 
 // info endpoint
 app.get('/info', (req, res) => {
-  res.render('info', { layout: false });
+  res.render('info');
 });
 
 // history endpoint
 app.get('/history', (req, res) => {
-  res.render('history', { layout: false });
+  res.render('history');
 });
 
 // use name from params to render using hbs
 app.get('/hello/:name', (req, res) => {
-  res.render('hello', { layout: false, name: req.params.name });
+  res.render('hello', { name: req.params.name });
 });
 
 // catch incorrect requests
