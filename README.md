@@ -1,4 +1,4 @@
-# Express server serving views and files :computer: :satellite: :crystal_ball:
+# Express server with Svalbard image :snowflake: :snowman: :ocean:
 
 Simple Express.js server created as exercise for Kodilla webdeveloper bootcamp (Module 21.2).
 
@@ -21,3 +21,6 @@ You can also install nodemon npm package and run `nodemon server`. This utility 
 ## TODO's
 
 - [ ] add new feature: if user load an image in contact form (as project design), as a result of succsess show img itself and not only info about success
+
+## Credits
+* Svalbard image from (check and add later).
